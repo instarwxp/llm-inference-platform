@@ -99,10 +99,10 @@ curl http://localhost:8000/api/models
 
 - [x] Local Ollama setup with llama3.2
 - [x] WSL2 + Docker environment
-- [ ] FastAPI gateway with model routing
-- [ ] Docker Compose multi-service setup
-- [ ] Prometheus metrics integration
-- [ ] Grafana dashboard
+- [x] FastAPI gateway with model routing
+- [x] Docker Compose multi-service setup
+- [x] Prometheus metrics integration
+- [x] Grafana dashboard
 - [ ] Kubernetes manifests + HPA
 - [ ] Load testing & performance benchmarks
 - [ ] Terraform AWS deployment
@@ -138,6 +138,7 @@ Once running, access the dashboards at:
 | Date | Milestone |
 |---|---|
 | 2026-05-12 | Project initialized, Ollama + Docker environment ready |
+| 2026-05-13 | Added full observability stack — Prometheus + Grafana dashboards |
 
 ---
 
