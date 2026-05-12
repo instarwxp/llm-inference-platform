@@ -153,3 +153,15 @@ Built by a DevOps/Infrastructure engineer transitioning into AI Infrastructure e
 ## License
 
 MIT License — feel free to use this as a reference for your own LLM infrastructure projects.
+
+## Screenshots
+
+### Grafana Monitoring Dashboard
+![Grafana Dashboard](docs/screenshots/grafana-dashboard.png)
+
+*Real-time monitoring: Request Rate by endpoint, P99 Latency, Error Rate*
+
+### Prometheus Targets
+![Prometheus Targets](docs/screenshots/prometheus-targets.png)
+
+*LLM Gateway target — State: UP, scraped every 15s*
