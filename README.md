@@ -165,3 +165,17 @@ MIT License — feel free to use this as a reference for your own LLM infrastruc
 ![Prometheus Targets](docs/screenshots/prometheus-targets.png)
 
 *LLM Gateway target — State: UP, scraped every 15s*
+
+## Performance Benchmarks
+
+Load test results (10 concurrent users, 60 seconds, using Locust):
+
+| Endpoint | RPS | Median Latency | P99 Latency | Error Rate |
+|---|---|---|---|---|
+| GET /health | 3.3 | 3ms | 16ms | 0% |
+| GET /api/models | 2.0 | 21ms | 37ms | 0% |
+| POST /api/chat | 0.97 | 250ms | 3400ms | 0% |
+| **Total** | **6.3** | **6ms** | **540ms** | **0%** |
+
+> Tested on: Windows 11, WSL2, NVIDIA RTX 3060 Ti 8GB, 32GB RAM
+> LLM: Llama 3.2 (3.2B parameters, Q4_K_M quantization)
