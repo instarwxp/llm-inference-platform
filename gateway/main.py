@@ -1,9 +1,12 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from prometheus_fastapi_instrumentator import Instrumentator
 import httpx
 import time
 
 app = FastAPI(title="LLM Inference Gateway", version="0.1.0")
+
+Instrumentator().instrument(app).expose(app)
 
 OLLAMA_BASE_URL = "http://192.168.32.1:11434"
 
@@ -25,7 +28,7 @@ async def health():
 async def list_models():
     async with httpx.AsyncClient() as client:
         try:
-            resp = await client.get(f"http://192.168.32.1:11434/api/tags", timeout=5)
+            resp = await client.get(f"{OLLAMA_BASE_URL}/api/tags", timeout=5)
             return resp.json()
         except Exception as e:
             raise HTTPException(status_code=503, detail=f"Ollama unreachable: {str(e)}")
@@ -36,7 +39,7 @@ async def chat(req: ChatRequest):
     async with httpx.AsyncClient(timeout=120) as client:
         try:
             resp = await client.post(
-                "http://192.168.32.1:11434/api/generate",
+                f"{OLLAMA_BASE_URL}/api/generate",
                 json={
                     "model": req.model,
                     "prompt": req.message,
@@ -52,4 +55,3 @@ async def chat(req: ChatRequest):
             )
         except Exception as e:
             raise HTTPException(status_code=503, detail=str(e))
-
