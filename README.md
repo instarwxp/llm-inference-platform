@@ -103,8 +103,8 @@ curl http://localhost:8000/api/models
 - [x] Docker Compose multi-service setup
 - [x] Prometheus metrics integration
 - [x] Grafana dashboard
-- [ ] Kubernetes manifests + HPA
-- [ ] Load testing & performance benchmarks
+- [x] Kubernetes manifests + HPA
+- [x] Load testing & performance benchmarks
 - [ ] Terraform AWS deployment
 
 ---
@@ -139,6 +139,7 @@ Once running, access the dashboards at:
 |---|---|
 | 2026-05-12 | Project initialized, Ollama + Docker environment ready |
 | 2026-05-13 | Added full observability stack — Prometheus + Grafana dashboards |
+| 2026-05-13 | Kubernetes deployment with k3d, HPA auto-scaling, Locust load testing |
 
 ---
 
